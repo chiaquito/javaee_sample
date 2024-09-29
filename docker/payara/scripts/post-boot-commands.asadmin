@@ -1,0 +1,3 @@
+#!/bin/bash
+# asadmin --user admin --passwordfile=/opt/payara/scripts/admin-password.txt create-admin-password --password=your_password
+# asadmin change-admin-password --passwordfile=/opt/payara/scripts/admin-password.txt

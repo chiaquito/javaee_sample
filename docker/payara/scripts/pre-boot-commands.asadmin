@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "pre-bootです"
+
+${PAYARA_DIR}/bin/asadmin --user ${ADMIN_USER} \
+--passwordfile=/passwordFile change-admin-password \
+--domain_name=${DOMAIN_NAME}

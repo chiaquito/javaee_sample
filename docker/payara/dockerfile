@@ -1,0 +1,15 @@
+FROM payara/server-web:5.2022.2
+
+# COPY ./deployments /opt/payara/deployments:ro
+COPY ./deployments/$WAR_FILE /opt/payara/deployments
+
+# Preconfigure Resources
+# COPY ./my-scripts/preboot-commands.asadmin $POSTBOOT_COMMANDS
+COPY ./scripts/pre-boot-commands.asadmin $PREBOOT_COMMANDS
+# COPY ./scripts/passwordFile /opt/payara/passwordFile
+COPY ./scripts/passwordFile /opt/payara/passwordFile
+
+# RUN chown payara $POSTBOOT_COMMANDS
+
+USER payara
+

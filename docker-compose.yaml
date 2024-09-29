@@ -1,0 +1,26 @@
+services:
+  payara:
+    container_name: payara
+    build: 
+      context: ./docker/payara
+      dockerfile: ./dockerfile
+    ports:
+      - "4848:4848"
+      - "8080:8080"
+    environment:
+      - ADMIN_USER=admin
+      - ADMIN_PASSWORD=password
+      - WAR_FILE=JavaEE6SampleApp.war
+      # - AS_ADMIN_PASSWORD=password
+      # - AS_ADMIN_NEWPASSWORD=newpassword
+      # ADMIN_PASSWORD=admin
+      # - POSTBOOT_COMMANDS=./path/to/file
+  db:
+    container_name: mysql
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=db
+    
